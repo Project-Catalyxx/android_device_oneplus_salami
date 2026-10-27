@@ -74,6 +74,16 @@ $(call soong_config_set,OPLUS_LINEAGE_TOUCH_HAL,INCLUDE_DIR,$(LOCAL_PATH)/touch/
 PRODUCT_PACKAGES += \
     android.hardware.vibrator.service.oplus-richtap
 
+# The camera's vendor public libraries: stock's list, which sm8550-common's
+# vendor ships, plus the ArcSoft/QNN libraries OplusCamera dlopen()s that the
+# camera's namespace can't otherwise reach. In Oscar's port this is a blob
+# fixup in sm8550-common's extract-files.py; LineageOS's sm8550-common is
+# unforked here. It has to come before the inherit it overrides
+# (sm8550-common's): inherit-product's marker is expanded in place, and the
+# first copy of a destination wins.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/linker/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # Inherit from the common OEM chipset makefile.
 $(call inherit-product, device/oneplus/sm8550-common/common.mk)
 
