@@ -7,6 +7,12 @@
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
+# Alert slider, and Oscar's Device Settings (hardware/oplus/packages/DeviceSettings).
+# Its KeyHandler takes the slider over from hardware/oplus's KeyHandler, which
+# sm8550-common lists and Device Settings overrides: overlay-lineage/lineage-sdk
+PRODUCT_PACKAGES += \
+    DeviceSettings
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
@@ -35,7 +41,6 @@ PRODUCT_PACKAGES += \
     EuiccPolicyResTarget \
     FrameworksResEuicc_EU \
     FrameworksResEuicc_NA \
-    KeyHandlerResTarget \
     OPlusFrameworksResTarget \
     OPlusSettingsProviderResTarget \
     OPlusSettingsResTarget \

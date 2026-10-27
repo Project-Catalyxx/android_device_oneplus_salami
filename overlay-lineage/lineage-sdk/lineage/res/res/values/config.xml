@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The CyanogenMod Project
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Paths to the libraries that contain device specific key handlers:
+         Device Settings' in place of the KeyHandler app sm8550-common names -->
+    <string-array name="config_deviceKeyHandlerLibs" translatable="false">
+        <item>/system_ext/priv-app/DeviceSettings/DeviceSettings.apk</item>
+        <item>/system_ext/priv-app/LineageParts/LineageParts.apk</item>
+    </string-array>
+
+    <!-- Names of the key handler classes -->
+    <string-array name="config_deviceKeyHandlerClasses" translatable="false">
+        <item>org.lineageos.device.settings.KeyHandler</item>
+        <item>org.lineageos.lineageparts.gestures.KeyHandler</item>
+    </string-array>
+</resources>
