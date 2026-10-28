@@ -30,6 +30,7 @@ TARGET_RECOVERY_UI_MARGIN_HEIGHT := 103
 
 # SEPolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+include vendor/oneplus/dolby/sepolicy/SEPolicy.mk
 
 # OPlus camera labels ro.oplus.* system-namespace props under vendor_camera_prop in the
 # vendor property_contexts (same as dodge). That trips the VTS vendor-property-namespace

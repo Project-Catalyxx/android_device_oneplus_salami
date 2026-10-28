@@ -18,6 +18,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     $(LOCAL_PATH)/configs/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
 
+# The audio HAL's effects list with Dolby's DAP added. It replaces the copy
+# sm8550-common installs from the kalama audio configs, so it has to come
+# before that inherit: the first copy of a destination wins.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_kalama/audio_effects.xml
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2376
 TARGET_SCREEN_WIDTH := 1080
@@ -97,3 +103,8 @@ $(call inherit-product, vendor/oneplus/salami/salami-vendor.mk)
 
 #camera
 $(call inherit-product-if-exists, vendor/oplus/camera-salami/opluscamera.mk)
+
+# Dolby Atmos (DAP) and the LunarisDolby app. Inherited makefiles are read
+# after the common makefile's body, so its DEVICE_MANIFEST_FILE := cannot drop
+# the HIDL fragments this one appends.
+$(call inherit-product, vendor/oneplus/dolby/config.mk)
