@@ -440,4 +440,9 @@
 
     <!-- Whether to enable fp unlock when screen turns off on udfps devices -->
     <bool name="config_screen_off_udfps_enabled">true</bool>
+
+    <!-- Touch feedback, and with it typing, starts at high: the vibrator HAL plays
+         that at RichTap's own full gain, what taps played at before the intensity
+         sliders, and medium and low sit below it -->
+    <integer name="config_defaultHapticFeedbackIntensity">3</integer>
 </resources>
