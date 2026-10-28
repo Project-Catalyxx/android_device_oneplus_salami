@@ -8,4 +8,12 @@
     <!-- Color of the UDFPS Pressed view -->
     <color name="config_udfpsColor">#ffffe6</color>
 
+    <!-- The location of the devices physical tri state switch
+         0: Left side
+         1: Right side -->
+    <integer name="config_alertSliderLocation">1</integer>
+
+    <!-- Key handler broadcast when changing slider position -->
+    <string name="config_alertSliderIntent" translatable="false">org.lineageos.device.settings.UPDATE_SLIDER_POSITION</string>
+
 </resources>
